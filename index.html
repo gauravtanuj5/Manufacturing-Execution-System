@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Manufacturing Execution System (MES) platform to optimize production, improve quality, track operations in real time, and enhance manufacturing efficiency.">
+<title>Manufacturing Execution System (MES)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--primary:#3b82f6;
+--dark:#0b1220;
+--navy:#111827;
+--glass:rgba(255,255,255,0.05);
+--text:#e5e7eb;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0b1220,#111827,#0f172a);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+header{
+position:fixed;
+width:100%;
+top:0;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+transition:0.3s;
+}
+header.scrolled{
+background:rgba(15,23,42,0.85);
+backdrop-filter:blur(10px);
+}
+header h2{
+color:white;
+font-weight:700;
+}
+nav a{
+color:#cbd5e1;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+transition:0.3s;
+}
+nav a:hover{
+color:var(--primary);
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(-45deg,#0f172a,#1e293b,#1d4ed8,#0f172a);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
+padding:0 20px;
+}
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+.hero h1{
+font-size:48px;
+font-weight:800;
+max-width:900px;
+margin-bottom:20px;
+animation:fadeDown 1s ease forwards;
+}
+.hero p{
+max-width:750px;
+color:#cbd5e1;
+font-size:18px;
+margin-bottom:30px;
+animation:fadeUp 1.3s ease forwards;
+}
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-40px);}
+to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+.btn{
+padding:14px 28px;
+border-radius:6px;
+font-weight:600;
+border:none;
+cursor:pointer;
+margin:8px;
+transition:0.3s;
+}
+.btn-primary{
+background:var(--primary);
+color:white;
+}
+.btn-primary:hover{
+box-shadow:0 0 20px var(--primary);
+transform:translateY(-3px);
+}
+.btn-outline{
+background:transparent;
+border:2px solid var(--primary);
+color:var(--primary);
+}
+.btn-outline:hover{
+background:var(--primary);
+color:white;
+}
+
+/* SECTIONS */
+section{
+padding:110px 8%;
+}
+.section-title{
+text-align:center;
+font-size:34px;
+font-weight:700;
+margin-bottom:60px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+.card{
+background:var(--glass);
+padding:30px;
+border-radius:14px;
+backdrop-filter:blur(12px);
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+background:rgba(59,130,246,0.1);
+}
+.card h3{
+margin-bottom:15px;
+color:var(--primary);
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+transition:1s ease;
+}
+
+/* TIMELINE */
+.timeline{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:space-between;
+}
+.step{
+flex:1;
+min-width:180px;
+background:var(--glass);
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+/* STATS */
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+text-align:center;
+}
+.stat h2{
+font-size:40px;
+color:var(--primary);
+}
+
+/* CONTACT */
+input, textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:none;
+}
+
+/* FOOTER */
+footer{
+background:#0b1220;
+padding:40px 8%;
+margin-top:40px;
+}
+footer .footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+}
+footer a{
+display:block;
+color:#9ca3af;
+text-decoration:none;
+margin:8px 0;
+font-size:14px;
+}
+footer a:hover{
+color:white;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:30px;}
+}
+</style>
+</head>
+
+<body>
+
+<header id="navbar">
+<h2>MES Pro</h2>
+<nav>
+<a href="#about">About</a>
+<a href="#modules">Modules</a>
+<a href="#industries">Industries</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Smart Manufacturing Execution System for Real-Time Production Control</h1>
+<p>Optimize production, improve quality, monitor shop floor operations in real time, and achieve full manufacturing visibility with our enterprise-grade MES platform.</p>
+<div>
+<button class="btn btn-primary">Request Demo</button>
+<button class="btn btn-outline">Download Brochure</button>
+</div>
+</section>
+
+<section id="about">
+<h2 class="section-title">What is MES?</h2>
+<div class="grid">
+<div class="card reveal"><h3>Production Tracking</h3><p>Monitor work orders, machines, and operators in real time.</p></div>
+<div class="card reveal"><h3>Quality Management</h3><p>Ensure consistent product quality with automated checks.</p></div>
+<div class="card reveal"><h3>Shop Floor Visibility</h3><p>Complete transparency across manufacturing operations.</p></div>
+</div>
+</section>
+
+<section id="modules">
+<h2 class="section-title">Core MES Modules</h2>
+<div class="grid">
+<div class="card reveal"><h3>Production Scheduling</h3></div>
+<div class="card reveal"><h3>Work Order Management</h3></div>
+<div class="card reveal"><h3>Inventory Tracking</h3></div>
+<div class="card reveal"><h3>Quality Control</h3></div>
+<div class="card reveal"><h3>Machine Integration</h3></div>
+<div class="card reveal"><h3>Performance Analytics</h3></div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">How MES Works</h2>
+<div class="timeline">
+<div class="step">Order Creation</div>
+<div class="step">Production Scheduling</div>
+<div class="step">Real-Time Monitoring</div>
+<div class="step">Quality Inspection</div>
+<div class="step">Performance Analytics</div>
+</div>
+</section>
+
+<section id="industries">
+<h2 class="section-title">Industries We Serve</h2>
+<div class="grid">
+<div class="card reveal"><h3>Automotive</h3></div>
+<div class="card reveal"><h3>Electronics</h3></div>
+<div class="card reveal"><h3>Pharmaceutical</h3></div>
+<div class="card reveal"><h3>Food & Beverage</h3></div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Business Impact</h2>
+<div class="stats">
+<div class="stat"><h2>35%</h2><p>Productivity Increase</p></div>
+<div class="stat"><h2>30%</h2><p>Waste Reduction</p></div>
+<div class="stat"><h2>25%</h2><p>Quality Improvement</p></div>
+<div class="stat"><h2>100%</h2><p>Operational Visibility</p></div>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="section-title">Contact Sales</h2>
+<form>
+<input type="text" placeholder="Name" required>
+<input type="text" placeholder="Company" required>
+<input type="email" placeholder="Email" required>
+<input type="tel" placeholder="Phone" required>
+<textarea rows="5" placeholder="Message"></textarea>
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+</section>
+
+<footer>
+<div class="footer-grid">
+<div>
+<h3>Product</h3>
+<a href="#">Overview</a>
+<a href="#">Modules</a>
+<a href="#">Security</a>
+</div>
+<div>
+<h3>Industries</h3>
+<a href="#">Automotive</a>
+<a href="#">Electronics</a>
+<a href="#">Pharma</a>
+</div>
+<div>
+<h3>Resources</h3>
+<a href="#">Blog</a>
+<a href="#">Case Studies</a>
+<a href="#">Documentation</a>
+</div>
+</div>
+<p style="margin-top:30px;text-align:center;color:#6b7280;">© 2026 MES Pro. All rights reserved.</p>
+</footer>
+
+<script>
+window.addEventListener("scroll", function(){
+document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
+function reveal(){
+var reveals=document.querySelectorAll(".reveal");
+for(var i=0;i<reveals.length;i++){
+var windowHeight=window.innerHeight;
+var elementTop=reveals[i].getBoundingClientRect().top;
+if(elementTop<windowHeight-100){
+reveals[i].classList.add("active");
+}
+}
+}
+window.addEventListener("scroll",reveal);
+document.querySelector("form").addEventListener("submit",function(e){
+e.preventDefault();
+alert("Thank you! Our team will contact you soon.");
+});
+</script>
+
+</body>
+</html>
